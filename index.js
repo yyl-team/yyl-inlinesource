@@ -1,27 +1,27 @@
 'use strict';
-const path = require('path');
-
 const ishtml = require('./lib/inlinesource-html');
 const isjs = require('./lib/inlinesource-js');
 
 const OPTION = {
   content: null,
-  path: null,
-  uglify: false
+  baseUrl: null,
+  type: ''
 };
 
 
 const inlinesource = function(op) {
   op = Object.assign({}, OPTION, op);
-  if (!op.path) {
-    throw new Error(`yyl-inlinesource run error, op.path is null: ${op.path}`);
+  if (!op.baseUrl) {
+    return Promise.reject('yyl-inlinesource run error, op.baseUrl is required');
+  } else if (!op.content) {
+    return Promise.reject('yyl-inlinesource run error, op.content is required');
   }
-  const iExt = path.extname(op.path);
 
-  switch (iExt) {
-    case '.html':
+
+  switch (op.type) {
+    case 'html':
       return ishtml(op);
-    case '.js':
+    case 'js':
       return isjs(op);
 
     default:

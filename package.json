@@ -20,6 +20,5 @@
   },
   "homepage": "https://github.com/jackness1208/yyl-inlinesource#readme",
   "dependencies": {
-    "html-minifier": "^3.5.11"
   }
 }
