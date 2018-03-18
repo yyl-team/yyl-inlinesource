@@ -1,0 +1,36 @@
+.img-box, .red-box, .blue-box {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  vertical-align: top;
+}
+.img-box {
+  background-image: url('../img/logo.png');
+  background-position: center;
+  background-size: 50px;
+}
+.red-box {
+    background: red;
+}
+.blue-box {
+    background: blue;
+}
+.num {
+  display: inline-block;
+  padding: 10px;
+  background: yellow;
+}
+.num-cnt {
+  display: inline-block;
+  padding: 10px;
+  background: cyan;
+  color: #fff;
+}
+.img-tag {
+  display: inline-block;
+  vertical-align: top;
+  height: 102px;
+  margin: 10px;
+}
