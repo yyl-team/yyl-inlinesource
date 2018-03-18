@@ -1,0 +1,25 @@
+{
+  "name": "yyl-inlinesource",
+  "version": "1.0.0",
+  "description": "inline source plugin for html, css, js",
+  "main": "index.js",
+  "scripts": {
+    "test": "test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackness1208/yyl-inlinesource.git"
+  },
+  "keywords": [
+    "inline-source"
+  ],
+  "author": "jackness",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jackness1208/yyl-inlinesource/issues"
+  },
+  "homepage": "https://github.com/jackness1208/yyl-inlinesource#readme",
+  "dependencies": {
+    "html-minifier": "^3.5.11"
+  }
+}
