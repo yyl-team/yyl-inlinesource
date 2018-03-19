@@ -86,11 +86,12 @@ inlinesource({
 ## 参数说明
 ```
 /**
- * @param  {Object}  op         参数
- * @param  {String}  op.baseUrl 文件路径
- * @param  {Buffer}  op.content 文件内容 
- * @param  {String}  op.type    文件类型, js|html
- * @return {Promise} Promise    返回一个 Promise 对象
+ * @param  {Object}  op             参数
+ * @param  {String}  op.baseUrl     文件当前路径
+ * @param  {String}  op.publishPath 文件输出的路径
+ * @param  {Buffer}  op.content     文件内容 
+ * @param  {String}  op.type        文件类型, js|html
+ * @return {Promise} Promise        返回一个 Promise 对象
  */
 inlinesource(op)
 ```
