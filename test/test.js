@@ -63,6 +63,8 @@ describe('yyl-inlinesource test', () => {
       }).then((cnt) => {
         fs.writeFileSync(distPath, cnt);
         next();
+      }).catch((er) => {
+        throw new Error(er);
       });
     }).then((next) => { // check
       const targetCnt = fs.readFileSync(distPath).toString();
@@ -141,6 +143,8 @@ describe('yyl-inlinesource test', () => {
       }).then((cnt) => {
         fs.writeFileSync(distPath, cnt);
         next();
+      }).catch((er) => {
+        throw new Error(er);
       });
     }).then((next) => { // check
       const targetCnt = fs.readFileSync(distPath).toString();
@@ -180,6 +184,8 @@ describe('yyl-inlinesource test', () => {
       }).then((cnt) => {
         fs.writeFileSync(distPath, cnt);
         next();
+      }).catch((er) => {
+        throw new Error(er);
       });
     }).then((next) => { // check
       const iCnt = fs.readFileSync(distPath).toString();
