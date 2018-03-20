@@ -59,7 +59,10 @@ describe('yyl-inlinesource test', () => {
         baseUrl: path.dirname(srcPath),
         publishPath: path.dirname(distPath),
         type: 'html',
-        content: fs.readFileSync(srcPath)
+        content: fs.readFileSync(srcPath),
+        alias: {
+          srcCss: '../css'
+        }
       }).then((cnt) => {
         fs.writeFileSync(distPath, cnt);
         next();

@@ -2,6 +2,7 @@
 ## 简介
 * 为 html 文件提供 script, link inline 代码内联语法糖
 * 为 html 文件中 style 标签 中的图片地址, img 标签 src 属性 提供 xx.png?__inline 图片 base64 转化语法糖
+* 为 html 文件提供 {$vars} 变量语法糖(需要配合 op.alias 使用)
 * 为 js 文件 提供 `__inline('./xx.tpl')` 模板文件内置 的语法糖
 * 为 js 文件 提供 `__inline('./xx.png')` 图片 base64 转化语法糖
 
@@ -91,6 +92,7 @@ inlinesource({
  * @param  {String}  op.publishPath 文件输出的路径
  * @param  {Buffer}  op.content     文件内容 
  * @param  {String}  op.type        文件类型, js|html
+ * @param  {Object}  op.alias       变量
  * @return {Promise} Promise        返回一个 Promise 对象
  */
 inlinesource(op)

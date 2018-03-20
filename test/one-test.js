@@ -11,7 +11,10 @@ const inlinesource = require('../index');
     baseUrl: path.dirname(srcPath),
     publishPath: path.dirname(distPath),
     type: 'html',
-    content: fs.readFileSync(srcPath)
+    content: fs.readFileSync(srcPath),
+    alias: {
+      srcCss: '../css'
+    }
   }).then((cnt) => {
     console.log('html =====================');
     console.log(cnt);

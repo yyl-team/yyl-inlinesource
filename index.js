@@ -7,7 +7,8 @@ const OPTION = {
   content: null,
   baseUrl: null,
   publishPath: null,
-  type: ''
+  type: '',
+  alias: {}
 };
 
 
