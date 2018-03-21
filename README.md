@@ -2,11 +2,10 @@
 ## 简介
 * 为 html 文件提供 script, link inline 代码内联语法糖
 * 为 html 文件中 style 标签 中的图片地址, img 标签 src 属性 提供 xx.png?__inline 图片 base64 转化语法糖
-* 为 html 文件提供 {$vars} 变量语法糖(需要配合 op.alias 使用)
 * 为 js 文件 提供 `__inline('./xx.tpl')` 模板文件内置 的语法糖
 * 为 js 文件 提供 `__inline('./xx.png')` 图片 base64 转化语法糖
 
-## 使用说明
+## 使用说明(相对路径)
 ### html, tpl 部分
 #### script, link 标签内联写法
 
@@ -102,6 +101,104 @@ inlinesource({
 });
 ```
 
+## 使用说明(绝对路径)
+### html, tpl 部分
+#### script, link 标签内联写法
+
+这是 link 标签 和 script 标签的 内联写法
+```
+<link rel="stylesheet" href="/css/demo.css" type="text/css" charset="utf-8" inline/>
+<script src="/js/demo.js" inline></script>
+```
+
+#### img 标签 base 64 置换写法
+这是 img标签 base64 的写法
+```
+<img src="/img/logo.png?__inline" />
+```
+
+构建完成后会变成base64格式
+```
+<img src="data:png;base64,......" />
+```
+
+### js 部分
+#### js 文件tpl 内联写法
+假设有 box.tpl 文件:
+```
+<span class="num">
+  <span class='num-cnt'>123</span>
+</span>
+```
+
+我们若在 js 这样调用
+```
+var tpl = __inline('/tpl/box.tpl');
+```
+
+则在构建完成后会变为:
+```
+var tpl = '<span class="num">\n  <span class=\'num-cnt\'>123</span>\n</span>\n';
+```
+#### js 文件img base64 写法
+
+我们若在 js 这样调用
+```
+var avatar = __inline('/img/logo.png');
+```
+
+则在构建完成后会变为:
+```
+var avatar = 'data:png;base64,......';
+```
+
+### css 部分
+#### 图片 base64 转换
+我们若在 css 这样调用
+```
+body {
+  background: url('/img/logo.png?__inline');
+}
+```
+
+则在构建完成后会变为:
+```
+body {
+  background: url('data:png;base64,......');
+}
+```
+
+### node 调用方式
+```
+const inlinesource = require('yyl-inlinesource');
+const srcPath = path.join(__dirname, './src/demo.html');
+const distPath = path.join(__dirname, './dist/demo.html');
+inlinesource({
+  baseUrl: path.dirname(srcPath),
+  publishPath: '/html/',
+  type: 'html',
+  content: fs.readFileSync(srcPath)
+}).then((cnt) => {
+  console.log(cnt);
+  fs.writeFileSync(distPath, cnt);
+});
+```
+
+```
+const inlinesource = require('yyl-inlinesource');
+const srcPath = path.join(__dirname, './src/js/demo.js');
+const distPath = path.join(__dirname, './dist/demo.js');
+inlinesource({
+  baseUrl: path.dirname(srcPath),
+  publishPath: '/js/',
+  type: 'js',
+  content: fs.readFileSync(srcPath)
+}).then((cnt) => {
+  console.log(cnt);
+  fs.writeFileSync(distPath, cnt);
+});
+```
+
 ## 参数说明
 ```
 /**
@@ -110,7 +207,6 @@ inlinesource({
  * @param  {String}  op.publishPath 文件输出的路径
  * @param  {Buffer}  op.content     文件内容 
  * @param  {String}  op.type        文件类型, js|html
- * @param  {Object}  op.alias       变量
  * @return {Promise} Promise        返回一个 Promise 对象
  */
 inlinesource(op)
