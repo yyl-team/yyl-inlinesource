@@ -24,7 +24,6 @@ const inlinesource = function(op) {
     op.publishPath = op.baseUrl;
   }
 
-
   switch (op.type) {
     case 'html':
       return ishtml(op);
