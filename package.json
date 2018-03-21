@@ -22,9 +22,10 @@
     "url": "https://github.com/jackness1208/yyl-inlinesource/issues"
   },
   "homepage": "https://github.com/jackness1208/yyl-inlinesource#readme",
-  "dependencies": {},
-  "devDependencies": {
-    "chai": "^4.1.2",
+  "dependencies": {
     "yyl-util": "^1.13.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2"
   }
 }
