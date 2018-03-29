@@ -62,6 +62,7 @@ const inlinesource = require('../index');
     baseUrl: path.join(__dirname, './dist/html'),
     publishPath: '/html',
     type: 'html',
+    minify: true,
     content: fs.readFileSync(srcPath)
   }).then((cnt) => {
     // console.log('html =====================');
@@ -79,6 +80,7 @@ const inlinesource = require('../index');
     baseUrl: path.join(__dirname, './dist/js'),
     publishPath: '/js',
     type: 'js',
+    minify: true,
     content: fs.readFileSync(srcPath)
   }).then((cnt) => {
     // console.log('js =====================');
@@ -96,6 +98,7 @@ const inlinesource = require('../index');
     baseUrl: path.join(__dirname, './dist/css'),
     publishPath: '/css',
     type: 'css',
+    minify: true,
     content: fs.readFileSync(srcPath)
   }).then((cnt) => {
     // console.log('css =====================');

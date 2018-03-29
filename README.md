@@ -207,6 +207,7 @@ inlinesource({
  * @param  {String}  op.publishPath 文件输出的路径
  * @param  {Buffer}  op.content     文件内容 
  * @param  {String}  op.type        文件类型, js|html
+ * @param  {Boolean} op.minify      是否压缩
  * @return {Promise} Promise        返回一个 Promise 对象
  */
 inlinesource(op)

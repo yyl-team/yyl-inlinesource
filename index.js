@@ -8,6 +8,7 @@ const OPTION = {
   baseUrl: null,
   publishPath: null,
   type: '',
+  minify: false,
   alias: {}
 };
 

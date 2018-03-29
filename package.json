@@ -1,6 +1,6 @@
 {
   "name": "yyl-inlinesource",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "description": "inline source plugin for html, css, js",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,10 @@
   },
   "homepage": "https://github.com/jackness1208/yyl-inlinesource#readme",
   "dependencies": {
-    "yyl-util": "^1.13.0"
+    "clean-css": "~4.1.11",
+    "html-minifier": "~3.5.12",
+    "uglify-js": "~3.3.16",
+    "yyl-util": "~1.13.0"
   },
   "devDependencies": {
     "chai": "^4.1.2"
